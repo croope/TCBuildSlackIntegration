@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: pip install slack-sdk
 
-      - name: Run cleanup script
+      - name: Run status script
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
         run: python goatsBuildState.py
