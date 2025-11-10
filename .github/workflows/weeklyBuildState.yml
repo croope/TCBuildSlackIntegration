@@ -23,5 +23,5 @@ jobs:
 
       - name: Run status script
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         run: python goatsBuildState.py
