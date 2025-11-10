@@ -121,15 +121,15 @@ def cleanup_bot_messages(channel_id):
             delete_message(channel_id, msg['ts'])
 
 # Run the workflow
-# messages = get_recent_messages()
-# failed_builds = extract_failed_builds(messages)
-# print(failed_builds)
-# post_summary(failed_builds)
+messages = get_recent_messages()
+failed_builds = extract_failed_builds(messages)
+print(failed_builds)
+post_summary(failed_builds)
 
 #cleanup_bot_messages(CHANNEL_ID)
 
-messages = get_recent_messages()
-build_statuses = get_build_statuses(messages)
-failed_builds = get_failed_builds(build_statuses)
-summary = generate_summary(messages, failed_builds)
-post_summary(summary)
+#messages = get_recent_messages()
+#build_statuses = get_build_statuses(messages)
+#failed_builds = get_failed_builds(build_statuses)
+#summary = generate_summary(messages, failed_builds)
+#post_summary(summary)
