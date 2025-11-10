@@ -5,10 +5,10 @@ from slack_sdk.errors import SlackApiError
 from datetime import datetime, timedelta
 
 # Set up your Slack bot token and channel ID
-SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
+SLACK_TOKEN = os.getenv("SLACK_TOKEN")
 CHANNEL_ID = "C09RMGFL55F"  # Replace with your actual channel ID
 
-client = WebClient(token=SLACK_BOT_TOKEN)
+client = WebClient(token=SLACK_TOKEN)
 
 def get_recent_messages():
     try:
