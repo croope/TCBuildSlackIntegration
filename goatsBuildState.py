@@ -106,27 +106,11 @@ def post_summary(failed_builds):
     except SlackApiError as e:
         print(f"Error posting summary: {e.response['error']}")
 
-
-def delete_message(channel_id, message_ts):
-    try:
-        response = client.chat_delete(channel=channel_id, ts=message_ts)
-        print("Message deleted:", response)
-    except SlackApiError as e:
-        print(f"Error deleting message: {e.response['error']}")
-
-def cleanup_bot_messages(channel_id):
-    response = client.conversations_history(channel=channel_id)
-    for msg in response['messages']:
-        if msg.get('bot_id'):  # Only delete bot messages
-            delete_message(channel_id, msg['ts'])
-
 # Run the workflow
 messages = get_recent_messages()
 failed_builds = extract_failed_builds(messages)
 print(failed_builds)
 post_summary(failed_builds)
-
-#cleanup_bot_messages(CHANNEL_ID)
 
 #messages = get_recent_messages()
 #build_statuses = get_build_statuses(messages)
