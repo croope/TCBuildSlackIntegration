@@ -23,5 +23,5 @@ jobs:
 
       - name: Run cleanup script
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_TOKEN }}
         run: python goatsBuildState.py
