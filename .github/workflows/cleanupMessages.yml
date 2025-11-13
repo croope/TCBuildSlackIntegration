@@ -1,0 +1,25 @@
+name: Slack cleanup messages
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install slack-sdk
+
+      - name: Run cleanup script
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+        run: python cleanupMessages.py
